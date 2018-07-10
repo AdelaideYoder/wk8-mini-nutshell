@@ -36,5 +36,3 @@ And each book should have an affordance to delete the book
 When the user performs a gesture on the delete affordance
 Then the book should be deleted```
 Message Input
-
-Message @Emily Lemmon 
