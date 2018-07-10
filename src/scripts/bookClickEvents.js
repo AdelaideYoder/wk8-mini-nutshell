@@ -1,13 +1,13 @@
 const $ = require("jquery");
 const bookForm = require("./bookFormBuilder");
 const bookDatabaseHandler = require("./bookDatabaseHandler");
-const bookPrinter = require("./bookPrinter")
+const bookPrinter = require("./bookPrinter");
 
 $("#addBook-btn").on("click", () => {
     bookForm.buildBookForm();
 })
 
-//Event Handler for the book form - SUBMIT BUTTON
+//Event Handler for the book form - SAVE BUTTON
 $("#bookForm-container").on("click", "#save-btn", () => {
     const bookTitleInput = $("#bookTitle-input").val();
     const bookSummaryInput = $("#bookSummary-input").val();
@@ -16,7 +16,7 @@ $("#bookForm-container").on("click", "#save-btn", () => {
       title: bookTitleInput,
       summary: bookSummaryInput,
       pages: bookPagesInput,
-    //   userID: userData()
+      finished: false
     }
     // console.log("this is the one", userData())
     bookDatabaseHandler.postBook(newBook)
@@ -31,3 +31,21 @@ $("#bookForm-container").on("click", "#save-btn", () => {
       bookPrinter.printBooks(bookArray)
   })
 })
+
+//Event Handler for the book printed on the DOM, when checkbox is clicked
+$("#bookContainer").on("click", ".checkbox-btn", () => {
+    const bookID = event.target.parentNode.id
+    // console.log("show me this", bookID)
+})
+
+//Event Handler for book list - DELETE BUTTON
+$("#bookContainer").on("click", ".delete-btn", () => {
+    const bookID = $(event.target).parent().attr("id")
+    bookDatabaseHandler.deleteBook(bookID)
+    .then(() => {
+      return bookDatabaseHandler.getAllBooks()
+    })
+    .then((bookArray) => {
+      bookPrinter.printBooks(bookArray)
+    })
+  })

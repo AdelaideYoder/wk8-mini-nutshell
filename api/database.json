@@ -1,10 +1,25 @@
 {
   "books": [
     {
-      "title": "asdf",
-      "summary": "asdf",
-      "pages": "asdf",
+      "title": "things",
+      "summary": "where",
+      "pages": "are",
+      "finished": "false",
       "id": 1
+    },
+    {
+      "title": "afdasd",
+      "summary": "asdfa",
+      "pages": "asdfas",
+      "finished": "false",
+      "id": 2
+    },
+    {
+      "title": "afad",
+      "summary": "adsfas",
+      "pages": "asdfas",
+      "finished": "false",
+      "id": 3
     }
   ]
 }

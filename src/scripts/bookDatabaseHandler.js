@@ -2,11 +2,11 @@ const $ = require("jquery");
 
 const bookDatabaseHandler = Object.create({}, {
     postBook: {
-        value: (newTaskObject) => {
+        value: (newBookObject) => {
             return $.ajax({
                 url: "http://localhost:3000/books",
                 method: "POST",
-                data: newTaskObject
+                data: newBookObject
             })
         }
     },
